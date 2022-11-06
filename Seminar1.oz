@@ -2,10 +2,10 @@
 {Browse 'Exercise 1, Absolute values'}
 declare
 fun {Abs X}
-   if X < 0 then ~X else X end
+  {Number.abs X}
 end
 {Browse {VirtualString.toAtom 'ABS -10 = '#{Abs ~10}}}
-{Browse {VirtualString.toAtom 'ABS 15 = '#{Abs 15}}}
+{Browse {VirtualString.toAtom 'ABS -5.5 = '#{Abs ~5.5}}}
 {Browse {VirtualString.toAtom 'ABS 0 = '#{Abs 0}}}
 {Browse {VirtualString.toAtom 'ABS -99999 = '#{Abs ~99999}}}
 
