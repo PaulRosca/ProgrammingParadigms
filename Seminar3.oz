@@ -76,9 +76,32 @@ end
 fun {Unzip List}
    {UnzipFirst List}#{UnzipSecond List}
 end
+fun {UnzipHelper List}
+   case List of
+      nil then nil
+   [] H|T then
+      case H of
+         nil then nil
+      [] A#B then R in
+         if T == nil then
+            r(A B)
+         else
+            R = {UnzipHelper T}
+            r((A|R.1) (B|R.2))
+         end
+      end
+   end
+end
+fun {UnzipImproved List}
+   local R in
+      R = {UnzipHelper List}
+      R.1#R.2
+   end
+end
 Zipped = {Zip [a b c]#[1 2 3]}
 {Browse Zipped}
 {Browse {Unzip Zipped}}
+{Browse {UnzipImproved Zipped}}
 
 % 4
 declare
